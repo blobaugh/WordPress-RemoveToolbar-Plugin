@@ -1,0 +1,39 @@
+<?php
+/*
+Plugin Name: RemoveToolbar
+Plugin URI: https://github.com/WordPress-Seattle/RemoveToolbar
+Description: Joke (but only slightly) plugin to destroy the toolbar WP now forces upon us! Inspired by http://wp.tutsplus.com/tutorials/how-to-disable-the-admin-bar-in-wordpress-3-3/
+Version: 0.1
+Author: Ben Lobaugh
+Author URI: http://ben.lobaugh.net
+*/
+
+   if (!function_exists('disableAdminBar')) {  
+      
+        function disableAdminBar(){            
+      
+       // remove_action( 'admin_footer', 'wp_admin_bar_render', 1000 ); // for the admin page  
+        remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 ); // for the front end  
+      
+       /* function remove_admin_bar_style_backend() {  // css override for the admin page  
+          echo '<style>body.admin-bar #wpcontent, body.admin-bar #adminmenu { padding-top: 0px !important; }</style>';  
+        }  
+      
+        add_filter('admin_head','remove_admin_bar_style_backend');  
+      */
+        function remove_admin_bar_style_frontend() { // css override for the frontend  
+            if(!is_admin()) {
+          echo '<style type="text/css" media="screen"> 
+          html { margin-top: 0px !important; } 
+          * html body { margin-top: 0px !important; } 
+          </style>';  
+            }
+        }  
+      
+        add_filter('wp_head','remove_admin_bar_style_frontend', 99);  
+      
+      }  
+      
+    }  
+      
+    add_action('init','disableAdminBar'); // New version  
