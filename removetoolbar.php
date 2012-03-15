@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: RemoveToolbar
-Plugin URI: https://github.com/WordPress-Seattle/RemoveToolbar
-Description: Joke (but only slightly) plugin to destroy the toolbar WP now forces upon us! Inspired by http://wp.tutsplus.com/tutorials/how-to-disable-the-admin-bar-in-wordpress-3-3/
+Plugin URI: https://github.com/blobaugh/WordPress-RemoveToolbar-Plugin
+Description: Remove the new toolbar on a per user basis for both the front-end and back-end
 Version: 0.1
 Author: Ben Lobaugh
 Author URI: http://ben.lobaugh.net
